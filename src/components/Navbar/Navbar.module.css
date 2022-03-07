@@ -1,0 +1,25 @@
+.nav {
+    grid-area: n;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border-radius: 5px;
+  }
+  .nav .item {
+    font-family: "Roboto Serif";
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 10px;
+  
+  }
+  .nav .item:hover { 
+    cursor: pointer;
+  }
+  .item a {
+    color: rgb(235, 235, 235);
+    text-decoration: none;
+  }
+
+ .item .active {
+    color: rgb(254, 192, 48);
+    text-decoration: none;
+  }

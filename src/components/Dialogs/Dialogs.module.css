@@ -1,0 +1,28 @@
+.item {
+  background-color: rgb(254, 192, 48, 0.7);
+  height: 160px;
+  border-radius: 5px;
+  grid-area: c;
+  height: 100%;
+}
+.dialogs {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+}
+.dialogsItems {
+  background-color: rgb(240, 240, 240);
+  margin: 20px;
+  padding: 10px;
+  border: dashed 1px rgba(0, 0, 0, 0.85);
+}
+.dialogs {
+  padding: 5px;
+  
+}
+.messages {
+  background-color: rgb(240, 240, 240);
+  margin: 20px;
+  padding: 15px 30px;
+  border: dashed 1px rgba(0, 0, 0, 0.85);
+}
+

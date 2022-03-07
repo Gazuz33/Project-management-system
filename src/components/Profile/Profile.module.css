@@ -1,0 +1,14 @@
+
+.content {
+    grid-area: c;
+    background-color: rgba(254, 192, 48, 0.7);
+    padding: 25px;
+    border-radius: 5px;
+  }
+  .content img { 
+    width: 1000px;
+    height: 150px;
+  }
+  .item {
+    margin: 10px;
+  }
