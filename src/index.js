@@ -1,16 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import store from "./redux/state";
+import store from "./redux/redux-store";
 
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={store.getState()} dispatch={store.dispatch.bind(store)} store = {store} />
+      <App state={state} dispatch={store.dispatch.bind(store)} store = {store} />
     </React.StrictMode>,
     document.getElementById("root")
   );
 };
 
 rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree);
+
+
+store.subscrabe(()=> {
+  let state = store.getState();
+  rerenderEntireTree(state);
+})
