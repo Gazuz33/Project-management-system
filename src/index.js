@@ -15,7 +15,7 @@ let rerenderEntireTree = (state) => {
 rerenderEntireTree(store.getState());
 
 
-store.subscrabe(()=> {
+store.subscribe(()=> {
   let state = store.getState();
   rerenderEntireTree(state);
 })
