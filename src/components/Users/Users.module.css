@@ -7,4 +7,9 @@
 .Card { 
     padding: 20px 40px;
     border: solid .5px rgba(0, 0, 0, 0.85);
+    cursor: default;
+}
+.img {
+    height: 40px;
+    width: 40px;
 }

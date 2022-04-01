@@ -1,36 +1,14 @@
 import s from "./Users.module.css";
+import * as axios from "axios";
+import userPhoto from "../../assets/images/userPhoto.png"
 
 let Users = (props) => {
   if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: 1,
-        followed: false,
-        photoUrl:
-          "https://oir.mobi/uploads/posts/2020-08/1596283242_4-p-gubka-bob-art-deviantart-6.png",
-        fullName: "Name_1",
-        status: "Status № 1",
-        location: { city: "Minsk", country: "Belarus" },
-      },
-      {
-        id: 2,
-        followed: true,
-        photoUrl:
-          "https://oir.mobi/uploads/posts/2020-08/1596283242_4-p-gubka-bob-art-deviantart-6.png",
-        fullName: "Name_2",
-        status: "Status № 2",
-        location: { city: "Minsk", country: "Belarus" },
-      },
-      {
-        id: 3,
-        followed: true,
-        photoUrl:
-          "https://oir.mobi/uploads/posts/2020-08/1596283242_4-p-gubka-bob-art-deviantart-6.png",
-        fullName: "Name_3",
-        status: "Status № 3",
-        location: { city: "Minsk", country: "Belarus" },
-      },
-    ]);
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((response) => {
+        props.setUsers(response.data.items);
+      });
   }
   return (
     <div className={s.item}>
@@ -38,7 +16,7 @@ let Users = (props) => {
         <div key={u.id} className={s.Card}>
           <span>
             <div>
-              <img src={u.photoUrl} />
+              <img className={s.img} src={u.photos.small != null ? u.photos.small: userPhoto } />
             </div>
             <div>
               {u.followed ? (
@@ -50,12 +28,12 @@ let Users = (props) => {
           </span>
           <span>
             <span>
-              <div>{u.fullName}</div>
+              <div>{u.name}</div>
               <div>{u.status}</div>
             </span>
             <span>
-              <div>{u.location.country}</div>
-              <div>{u.location.city}</div>
+              <div>{"u.location.country"}</div>
+              <div>{"u.location.city"}</div>
             </span>
           </span>
         </div>
