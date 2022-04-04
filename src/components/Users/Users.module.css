@@ -10,6 +10,9 @@
     cursor: default;
 }
 .img {
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
+}
+.selectedPage {
+    font-weight: 900;
 }
