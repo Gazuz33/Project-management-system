@@ -4,7 +4,6 @@
     background-color: rgb(235, 235, 235);
     border: solid 1.3px black;
     border-radius: 5px;
-    display: flex;
   }
   .header img {
     width: 50px;
@@ -18,4 +17,7 @@
     font-style: italic;
     font-size: 25px;
     line-height: 30px;
+  }
+  .loginBlock { 
+    float: right;
   }
