@@ -3,12 +3,8 @@ import profileReducer from "./profile-reducer";
 
 let store = {
   _state: {
-    profilePage: {
-      
-    },
-    dialogsPage: {
-     
-    },
+    profilePage: {},
+    dialogsPage: {},
   },
   getState() {
     return this._state;
