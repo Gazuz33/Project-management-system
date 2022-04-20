@@ -1,4 +1,6 @@
 import { Navigate } from "react-router-dom";
+import { reduxForm } from "redux-form";
+import { Field } from "redux-form";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DilaogItem/DialogItem";
 import Message from "./Message/Message";
@@ -12,42 +14,39 @@ const Dialogs = (props) => {
   let messagesElements = state.MessagesData.map((m) => (
     <Message message={m.message} />
   ));
-  let newMessageBody = state.newMessageBody;
-
-  let onSendMessageClick = () => {
-    props.sendMessage();
+  let addNewMessage = (values) => {
+    props.sendMessage(values.newMessageBody);
   };
-
-  let onNewMessageChange = (e) => {
-    let body = e.target.value;
-    props.updateNewMessageBody(body);
-  };
-  if (!props.isAuth) 
-  return <Navigate to = {"/login"} />
+  if (!props.isAuth) return <Navigate to={"/login"} />;
   return (
     <div className={s.item}>
       <div className={s.dialogs}>
         <div className={s.dialogsItems}>{dialogElements}</div>
         <div className={s.messages}>
           <div>{messagesElements}</div>
-          <div>
-            <div>
-              <textarea
-                className={s.messageText}
-                placeholder="Enter your message "
-                value={newMessageBody}
-                onChange={onNewMessageChange}
-              ></textarea>
-            </div>
-            <div>
-              <button className={s.Send} onClick={onSendMessageClick}>
-                Send
-              </button>
-            </div>
-          </div>
+          <AddMassageFormRedux onSubmit={addNewMessage} />
         </div>
       </div>
     </div>
   );
 };
+const AddMassageForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <div>
+        <Field
+          component="textarea"
+          name="newMessageBody"
+          placeholder="Enter message"
+        />
+      </div>
+      <div>
+        <button>Send</button>
+      </div>
+    </form>
+  );
+};
+const AddMassageFormRedux = reduxForm({ form: "dialogAddMessageForm" })(
+  AddMassageForm
+);
 export default Dialogs;
