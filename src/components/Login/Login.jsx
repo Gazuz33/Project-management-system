@@ -1,22 +1,36 @@
-
+import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { Field } from "redux-form";
 import { reduxForm } from "redux-form";
+import { login } from "../../redux/auth-reducer";
 import { Input } from "../common/FormsControls/FormsControls";
 import required from "../utils/validators/validators";
+import s from "./Login.module.css";
 
 const LoginForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={props.handleSubmit} className={s.form}>
+      <legend>LOGIN</legend>
       <div>
-        <Field placeholder={"Login"} component={Input} name={"login"}
-        validate={[required]}/>
+        <Field
+          placeholder={"Email"}
+          component={Input}
+          name={"email"}
+          validate={[required]}
+        />
       </div>
       <div>
-        <Field placeholder={"Password"} component={Input} name={"password"}
-        validate={[required]}/>
+        <Field
+          placeholder={"Password"}
+          component={Input}
+          name={"password"}
+          type={"password"}
+          validate={[required]}
+        />
       </div>
       <div>
-        <Field type={"checkbox"} component={"input"} name={"rememberMe"} /> Remember me
+        <Field type={"checkbox"} component={"input"} name={"rememberMe"} />{" "}
+        Remember me
       </div>
       <div>
         <button>Login</button>
@@ -27,16 +41,21 @@ const LoginForm = (props) => {
 const LoginReduxForm = reduxForm({
   form: "login",
 })(LoginForm);
+
 const Login = (props) => {
-    const onSubmit = (formData) => {
-        console.log(formData)
-    }
+  const onSubmit = (formData) => {
+    props.login(formData.email, formData.password, formData.rememberMe);
+  };
+  if (props.isAuth) {
+    return <Navigate to={"/profile"} />;
+  }
   return (
-    <div>
-      <h1>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit}/>
+    <div className={s.item}>
+      <LoginReduxForm onSubmit={onSubmit} />
     </div>
   );
 };
-
-export default Login;
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+});
+export default connect(mapStateToProps, { login })(Login);

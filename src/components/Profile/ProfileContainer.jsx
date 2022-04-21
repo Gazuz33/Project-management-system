@@ -1,12 +1,12 @@
 import React from "react";
 import Profile from "./Profile";
-import { getStatus, getUserProfile, updateStatus } from "../../redux/profile-reducer";
-import { connect } from "react-redux";
 import {
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+  getStatus,
+  getUserProfile,
+  updateStatus,
+} from "../../redux/profile-reducer";
+import { connect } from "react-redux";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 
@@ -17,10 +17,17 @@ class ProfileContainer extends React.Component {
       userId = 23396;
     }
     this.props.getUserProfile(userId);
-    this.props.getStatus(userId)
+    this.props.getStatus(userId);
   }
   render() {
-    return <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus} />;
+    return (
+      <Profile
+        {...this.props}
+        profile={this.props.profile}
+        status={this.props.status}
+        updateStatus={this.props.updateStatus}
+      />
+    );
   }
 }
 
