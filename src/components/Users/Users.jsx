@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import userPhoto from "../../assets/images/userPhoto.png";
 import s from "./Users.module.css";
 import * as axios from "axios";
-import { toggleFollowingProgress } from "../../redux/users-reducer";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -14,17 +13,17 @@ let Users = (props) => {
   }
   return (
     <div className={s.item}>
-      <div>
+      <div className={s.pagesNav}>
         {pages.map((p) => {
           return (
-            <span
+            <button
               className={props.currentPage === p && s.selectedPage}
               onClick={() => {
                 props.onPageChanged(p);
               }}
             >
               {p}
-            </span>
+            </button>
           );
         })}
       </div>
