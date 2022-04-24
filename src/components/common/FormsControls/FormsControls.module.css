@@ -12,3 +12,7 @@
   padding: 5px;
   color: red;
 }
+textarea::-webkit-input-placeholder {
+  font-size: 18px;
+  line-height: 18px;
+}

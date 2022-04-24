@@ -16,7 +16,6 @@
 }
 .dialogs {
   padding: 5px;
-  
 }
 .messages {
   background-color: rgb(240, 240, 240);
@@ -29,4 +28,16 @@
 }
 .Send {
   margin-top: 10px;
+}
+.textarea {
+  margin-top: 50px;
+}
+form button {
+  cursor: pointer;
+  width: 70px;
+  height: 40px;
+  font-family: "Roboto Serif";
+  font-size: 15px;
+  line-height: 20px;
+  margin-top: 5px;
 }

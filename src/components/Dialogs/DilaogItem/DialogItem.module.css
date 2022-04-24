@@ -23,3 +23,8 @@ img {
 .message {
   padding: 5px;
 }
+.dialog span {
+  position: absolute;
+  text-decoration: none;
+  margin: 25px 10px;
+}
