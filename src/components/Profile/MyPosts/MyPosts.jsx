@@ -6,13 +6,14 @@ import required, { maxLengthCreator } from "../../utils/validators/validators";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength10 = maxLengthCreator(300);
 
 const MyPosts = (props) => {
   let postElements = props.posts.map((p) => <Post message={p.message} />);
 
   let onAddPost = (values) => {
     props.addPost(values.newPostText);
+    values.newPostText = "";
   };
 
   return (
@@ -34,7 +35,7 @@ const AddNewPostForm = (props) => {
           validate={[required, maxLength10]}
         />
       </div>
-      <button>Add post</button>
+      <button className={s.addPost}>Add post</button>
     </form>
   );
 };

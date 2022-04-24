@@ -6,13 +6,17 @@
     border-radius: 5px;
   }
   .header img {
+    position: absolute;
     width: 50px;
     height: 50px;
-    margin: auto 20px;
+    top: 10px;
+    padding-left: 20px;
   }
   .header span {
+    position: relative;
     color: rgba(0, 0, 0, 0.85);
-    margin: 30px 10px;
+    left: 90px;
+    top: 25px;
     font-family: "Roboto Serif";
     font-style: italic;
     font-size: 25px;
@@ -20,4 +24,26 @@
   }
   .loginBlock { 
     float: right;
+  }
+  .logout {
+    position: relative;
+    margin: 10px 20px;
+    cursor: pointer;
+  }
+  .login {
+    display: flex;
+    margin: 10px 20px;
+    font-family: "Roboto Serif";
+    font-size: 20px;
+    line-height: 25px;
+  }
+  .loginBtn {
+    position: relative;
+    margin: 20px;
+    cursor: pointer;
+    width: 70px;
+    height: 40px;
+    font-family: "Roboto Serif";
+    font-size: 15px;
+    line-height: 20px;
   }

@@ -7,5 +7,10 @@
     "n c";
   width: 1200px;
   height: 500px;
-  margin: 0 auto;
+  margin: -10px auto;
+
+}
+.app-wrapper-content {
+  background-color: rgba(254, 192, 48, 0.7);
+  
 }

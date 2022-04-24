@@ -1,3 +1,9 @@
-button {
-    margin-bottom: 10px;
+.addPost {
+  margin: 10px 0;
+  cursor: pointer;
+  width: 90px;
+  height: 35px;
+  font-family: "Roboto Serif";
+  font-size: 15px;
+  line-height: 20px;
 }

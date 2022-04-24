@@ -6,9 +6,9 @@ const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS";
 
 let initialState = {
   posts: [
-    { id: 1, message: "Hello" },
+    { id: 1, message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."},
     { id: 2, message: "Privet" },
-    { id: 3, message: "Chypali Mynyana" },
+    { id: 3, message: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form" },
   ],
   profile: null,
   status: "",
@@ -23,7 +23,7 @@ const profileReducer = (state = initialState, action) => {
       };
       return {
         ...state,
-        posts: [...state.posts, newPost],
+        posts: [newPost,...state.posts ],
         newPost: "",
       };
 

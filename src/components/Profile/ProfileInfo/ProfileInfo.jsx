@@ -4,23 +4,44 @@ import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/images/userPhoto.png";
 
 const ProfileInfo = (props) => {
-  if (!props.profile ){
-    return <Preloader /> 
+  if (!props.profile) {
+    return <Preloader />;
   }
   const onMainPhotoSelected = (e) => {
     if (e.target.files.length) {
-      props.savePhoto(e.target.files[0])
+      props.savePhoto(e.target.files[0]);
     }
-  }
+  };
   return (
-    <div>
-      <div className={s.item}><ProfileStatusWithHooks status = {props.status} updateStatus={props.updateStatus} /></div>
-      <img src={props.profile.photos.large || userPhoto}></img>
+    <div className={s.content}>
+      <div className={s.ava_description}>
+      <img
+        src={props.profile.photos.large || userPhoto}
+      ></img>
+     
+      <div className={s.info}>
+      <div>Name: {props.profile.fullName}</div>
+      <br />
       <div>
-      {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
+      <ProfileStatusWithHooks
+        status={props.status}
+        updateStatus={props.updateStatus}
+      /></div>
       </div>
-      <div className={s.item}><h3>My posts</h3></div>
+      </div> 
+      <div className={s.load}>
+        {props.isOwner && (
+          <input type={"file"} onChange={onMainPhotoSelected} />
+        )}
+      </div>
+      <div>
+        <h3>Information posts</h3>
+      </div>
     </div>
   );
 };
 export default ProfileInfo;
+
+
+
+

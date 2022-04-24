@@ -1,3 +1,45 @@
  .item {
-    margin: 10px;
+    margin: 10px 20px;
+  }
+  .status { 
+    font-family: "Roboto Serif";
+    font-size: 20px;
+    line-height: 25px;
+  }
+  span, h3 {
+    font-family: "Roboto Serif";
+    font-size: 18px;
+    line-height: 23px;
+  }
+  .text {
+    color: rgba(29, 1, 71, 0.736);
+  }
+  h3 {
+    margin-top: 40px;
+  }
+  .content img {
+    width: 100%;
+  }
+  .content .ava_description {
+    margin-left: 5%;
+    margin-top: 2%;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .content .ava_description img {
+    width: 20%;
+  }
+  .info {
+    font-family: "Roboto Serif";
+    font-size: 18px;
+    line-height: 23px;
+    margin-left: 80px;
+  }
+  .content .ava_description img {
+    width: 30%;
+    height: 30%;
+  }
+  .load {
+    margin-top: 20px;
+    margin-left: 50px;
   }
