@@ -5,14 +5,13 @@ import Card from "../Card";
 import InputContainer from "./Input/InputContainer";
 import style from "../todo.module.css"
 
-export default function List() {
+
+export default function List({list}) {
     return (
         <div>
             <Paper className={style.card}>
-                <Title />
-                <Card />
-                <Card />
-                <Card />
+                <Title title={list.title}/>
+                {list.cards.map((card)=>(<Card card={card}/>))}
                 <InputContainer />
             </Paper>
         </div>

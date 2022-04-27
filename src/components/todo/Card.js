@@ -2,10 +2,10 @@ import { Paper } from "@mui/material";
 import React from "react";
 import style from "./todo.module.css"
 
-export default function Card() {
+export default function Card({card}) {
     return (
         <div>
-            <Paper className={style.item}>Make a cake</Paper>
+            <Paper className={style.item}>{card.content}</Paper>
         </div>
     )
 }

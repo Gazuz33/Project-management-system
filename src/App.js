@@ -10,6 +10,8 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
+import ToDo from "./components/todo/todo";
+
 
 const App = () => {
   return (
@@ -26,6 +28,7 @@ const App = () => {
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/todo" element={<ToDo/>} />
           </Routes>
         </div>
       </div>
