@@ -15,11 +15,21 @@
 
 .pagesNav {
     display: flex;
-    padding-top: 10px;
+    padding: 10px;
     justify-content: center;
 }
 
-.pageNumber.selectedPage {
-    font-weight: bold;
-    border-color: black;
+.name {
+    margin-top: 20px;
+}
+
+.user {
+    display: flex;
+}
+.follow {   
+    margin-left: 50px;
+    font-family: "Roboto Serif";
+    font-size: 18px;
+    line-height: 20px;
+    padding: 5px;
 }

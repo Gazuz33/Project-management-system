@@ -16,6 +16,7 @@ let Users = (props) => {
       <div className={s.pagesNav}>
         {pages.map((p) => {
           return (
+            <div className={s.page}>
             <button
               className={props.currentPage === p && s.selectedPage}
               onClick={() => {
@@ -24,12 +25,13 @@ let Users = (props) => {
             >
               {p}
             </button>
+            </div>
           );
         })}
       </div>
       {props.users.map((u) => (
         <div key={u.id} className={s.Card}>
-          <span>
+          <span>  
             <div>
               <NavLink to={"/profile/" + u.id}>
                 <img
@@ -38,9 +40,17 @@ let Users = (props) => {
                 />
               </NavLink>
             </div>
-            <div>
+            <div className={s.user}>
+            <span>
+            <span className={s.name}>
+              <div>{u.name}</div>
+              <div>{u.status}</div>
+            </span>
+          </span>
+            <div >
               {u.followed ? (
                 <button
+                  className={s.follow}
                   disabled={props.followingInProgress}
                   onClick={() => {
                     props.toggleFollowingProgress(true);
@@ -66,6 +76,7 @@ let Users = (props) => {
                 </button>
               ) : (
                 <button
+                  className={s.follow}
                   disabled={props.followingInProgress}
                   onClick={() => {
                     props.toggleFollowingProgress(true);
@@ -92,18 +103,28 @@ let Users = (props) => {
                 </button>
               )}
             </div>
-          </span>
-          <span>
-            <span>
-              <div>{u.name}</div>
-              <div>{u.status}</div>
-            </span>
-            <span>
-            </span>
+            </div>
           </span>
         </div>
       ))}
+      <div className={s.pagesNav}>
+        {pages.map((p) => {
+          return (
+            <div className={s.page}>
+            <button
+              className={props.currentPage === p && s.selectedPage}
+              onClick={() => {
+                props.onPageChanged(p);
+              }}
+            >
+              {p}
+            </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
+    
   );
 };
 export default Users;
