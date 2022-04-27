@@ -5,7 +5,7 @@ import style from "./todo.module.css"
 export default function Card({card}) {
     return (
         <div>
-            <Paper className={style.item}>{card.content}</Paper>
+            <Paper className={style.item}>{card.title}</Paper>
         </div>
     )
 }

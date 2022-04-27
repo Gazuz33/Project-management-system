@@ -12,7 +12,7 @@ export default function List({list}) {
             <Paper className={style.card}>
                 <Title title={list.title}/>
                 {list.cards.map((card)=>(<Card card={card}/>))}
-                <InputContainer />
+                <InputContainer listId={list.id} />
             </Paper>
         </div>
     )
