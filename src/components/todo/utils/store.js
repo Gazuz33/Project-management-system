@@ -17,16 +17,16 @@ const cards = [
     lists: {
       'list-1': {
         id: 'list-1',
-        title: 'Todo',
+        title: 'To do',
         cards,
       },
       'list-2': {
         id: 'list-2',
-        title: 'Doing',
+        title: 'In progress...',
         cards: [],
       },
     },
-    listIds: ['list-1'],
+    listIds: ['list-1', 'list-2'],
   };
   
   export default data;
