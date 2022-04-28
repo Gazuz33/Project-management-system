@@ -3,21 +3,22 @@ import React, { useContext, useState } from "react";
 import style from "../../todo.module.css";
 import storeApi from "../../utils/storeApi";
 
-export default function InputCard({ setOpen, listId }) {
-  const { addMoreCard } = useContext(storeApi);
-  const [cardTitle, setCardTitle] = useState("");
-
+export default function InputCard({ setOpen, listId, type }) {
+  const { addMoreCard, addMoreList } = useContext(storeApi);
+  const [title, setTitle] = useState("");
   const handleOnChange = (e) => {
-    setCardTitle(e.target.value);
+    setTitle(e.target.value);
   };
   const handleBtnConfirm = () => {
-    addMoreCard(cardTitle, listId);
-    setCardTitle("");
-    setOpen(false);
-  };
-
-  const handleBlur = () => {
-    setOpen(false);
+    if (type === 'card') {
+      addMoreCard(title, listId);
+      setTitle('');
+      setOpen(false);
+    } else {
+      addMoreList(title);
+      setTitle('');
+      setOpen(false);
+    }
   };
   return (
     <div>
@@ -26,16 +27,19 @@ export default function InputCard({ setOpen, listId }) {
           <InputBase
             onChange={handleOnChange}
             multiline
-            fullWidth
-            placeholder="Enter a value"
             autoFocus
-            value={cardTitle}
+            value={title}
+            placeholder={
+              type === "card"
+                ? "Enter a title of this card.."
+                : "Enter list title..."
+            }
           />
         </Paper>
       </div>
       <div className={style.btns}>
         <Button onClick={handleBtnConfirm} className={style.add}>
-          Add card
+          {type === "card" ? "Add Card" : "Add List"}
         </Button>
         <Button
           onClick={() => setOpen(false)}
