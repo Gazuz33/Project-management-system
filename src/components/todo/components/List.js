@@ -9,7 +9,7 @@ export default function List({ list }) {
   return (
     <div>
       <Paper className={style.card}>
-        <Title title={list.title} />
+        <Title title={list.title} listId={list.id} />
         {list.cards.map((card) => (
           <Card card={card} />
         ))}

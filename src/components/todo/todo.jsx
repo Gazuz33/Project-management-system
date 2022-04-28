@@ -43,8 +43,21 @@ const ToDo = () => {
     };
     setData(newState);
   };
+  const updateListTitle = (title, listId) => {
+    const list = data.lists[listId];
+    list.title = title;
+
+    const newState = {
+      ...data,
+      lists: {
+        ...data.lists,
+        [listId]: list,
+      },
+    };
+    setData(newState);
+  };
   return (
-    <storeApi.Provider value={{ addMoreCard, addMoreList }}>
+    <storeApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
       <div className={style.addCard}>
         {data.listIds.map((listId) => {
           const list = data.lists[listId];
