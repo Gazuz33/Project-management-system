@@ -2,6 +2,9 @@
     border: .1px solid rgba(0, 0, 0, 0.2);
     width: 180px;
     margin: 0 40px;
+    font-family: "Roboto Serif";
+    font-size: 15px;
+    line-height: 16px;
 }
 .cardTitle {
     background-color: rgb(134, 97, 214, 0.6);
