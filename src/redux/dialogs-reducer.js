@@ -2,10 +2,10 @@ const SEND_MESSAGE = "SEND_MESSAGE";
 
 let initialState = {
   DialogsData: [
-    { id: 1, name: "Andrey" },
-    { id: 2, name: "Katya" },
-    { id: 3, name: "Alexandr" },
-    { id: 4, name: "Liza" },
+    { id: 1, name: "Андрей" },
+    { id: 2, name: "Катя" },
+    { id: 3, name: "Александр" },
+    { id: 4, name: "Елизавета" },
   ],
   MessagesData: [
     { id: 1, message: "Hello" },

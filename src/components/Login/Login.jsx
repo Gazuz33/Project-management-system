@@ -6,12 +6,12 @@ import { login } from "../../redux/auth-reducer";
 import { Input } from "../common/FormsControls/FormsControls";
 import required from "../utils/validators/validators";
 import s from "./Login.module.css";
-import style from "../common/FormsControls/FormsControls.module.css"
+import style from "../common/FormsControls/FormsControls.module.css";
 
 const LoginForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit} className={s.form}>
-      <legend>LOGIN</legend>
+      <legend>Войдите в аккаунт</legend>
       <div>
         <Field
           placeholder={"Email"}
@@ -31,13 +31,13 @@ const LoginForm = (props) => {
       </div>
       <div>
         <Field type={"checkbox"} component={"input"} name={"rememberMe"} />{" "}
-        Remember me
+        Запомнить меня
       </div>
-      {props.error && <div className={style.formSummaryError}>
-      {props.error}
-      </div>}
+      {props.error && (
+        <div className={style.formSummaryError}>{props.error}</div>
+      )}
       <div>
-        <button>Login</button>
+        <button>Войти</button>
       </div>
     </form>
   );

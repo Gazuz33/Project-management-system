@@ -11,7 +11,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import ToDo from "./components/todo/todo";
-
+import Video from "./components/video/video";
 
 const App = () => {
   return (
@@ -21,19 +21,22 @@ const App = () => {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/" element={<DialogsContainer />} /> 
-            <Route path="/dialogs" element={<DialogsContainer />} /> 
+            <Route path="/" element={<DialogsContainer />} />
+            <Route path="/dialogs" element={<DialogsContainer />} />
             <Route path="/profile/:userId" element={<ProfileContainer />} />
             <Route path="/profile" element={<ProfileContainer />} />
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/todo" element={<ToDo/>} />
+            <Route path="/todo" element={<ToDo />} />
+            <Route path="/video" element={<Video />} />
           </Routes>
         </div>
       </div>
     </BrowserRouter>
   );
 };
-
 export default App;
+
+
+

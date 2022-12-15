@@ -10,11 +10,13 @@ const Header = (props) => {
           <div>
             <div className={s.login}>{props.login}</div>{" "}
             <div className={s.logout}>
-              <button onClick={props.logout}>Log out</button>
+              <button onClick={props.logout}>Выйти</button>
             </div>{" "}
           </div>
         ) : (
-          <NavLink to={"/login"}><button className={s.loginBtn}>Login</button></NavLink>
+          <NavLink to={"/login"}>
+            <button className={s.loginBtn}>Войти</button>
+          </NavLink>
         )}
       </div>
     </header>

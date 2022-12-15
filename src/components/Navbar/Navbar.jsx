@@ -5,15 +5,17 @@ const Navbar = () => {
   return (
     <nav className={s.nav}>
       <div className={s.item}>
-        <NavLink to ="/profile" className={setActive}>Profile</NavLink></div>
+        <NavLink to ="/profile" className={setActive}>Профиль</NavLink></div>
       <div className={s.item}>
-        <NavLink to="/dialogs" className={setActive}>Messages</NavLink></div>
-        <div className={s.item}>
-        <NavLink to="/users" className={setActive}>Users</NavLink></div>
+        <NavLink to="/dialogs" className={setActive}>Сообщения</NavLink></div>
       <div className={s.item}>
-        <NavLink to="/settings" className={setActive}>Settings</NavLink></div>
-        <div className={s.item}>
-        <NavLink to="/todo" className={setActive}>ToDo</NavLink></div> 
+        <NavLink to="/users" className={setActive}>Пользователи</NavLink></div>
+      <div className={s.item}>
+        <NavLink to="/settings" className={setActive}>Настройки</NavLink></div>
+      <div className={s.item}>
+        <NavLink to="/todo" className={setActive}>Мои доски</NavLink></div> 
+      <div className={s.item}>
+        <NavLink to="/video" className={setActive}>Видео-чат</NavLink></div> 
     </nav>
   ); 
 };

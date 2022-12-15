@@ -7,6 +7,7 @@ import InputContainer from "./components/Input/InputContainer";
 import style from "./todo.module.css";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Droppable } from "react-beautiful-dnd";
+import { Navigate } from "react-router-dom";
 
 const ToDo = () => {
   const [data, setData] = useState(store);

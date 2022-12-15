@@ -17,12 +17,12 @@ const cards = [
     lists: {
       'list-1': {
         id: 'list-1',
-        title: 'To do',
+        title: 'Необходимо выполнить',
         cards,
       },
       'list-2': {
         id: 'list-2',
-        title: 'In progress...',
+        title: 'В процессе...',
         cards: [],
       },
     },

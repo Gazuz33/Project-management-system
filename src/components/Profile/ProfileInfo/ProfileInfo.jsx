@@ -20,7 +20,7 @@ const ProfileInfo = (props) => {
       ></img>
      
       <div className={s.info}>
-      <div>Name: {props.profile.fullName}</div>
+      <div>Имя: {props.profile.fullName}</div>
       <br />
       <div>
       <ProfileStatusWithHooks
@@ -35,7 +35,7 @@ const ProfileInfo = (props) => {
         )}
       </div>
       <div>
-        <h3>Information posts</h3>
+        <h3>Информационный раздел</h3>
       </div>
     </div>
   );

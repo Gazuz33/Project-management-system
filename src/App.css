@@ -1,4 +1,5 @@
 .app-wrapper {
+  visibility: visible;
   display: grid;
   grid-template-columns: 2fr 10fr;
   grid-template-rows: 80px 1fr;

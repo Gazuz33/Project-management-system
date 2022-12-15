@@ -6,9 +6,9 @@ const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS";
 
 let initialState = {
   posts: [
-    { id: 1, message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."},
-    { id: 2, message: "Privet" },
-    { id: 3, message: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form" },
+    { id: 1, message: "Создавать интерактивные пользовательские интерфейсы на React — приятно и просто."},
+    { id: 2, message: "React-компоненты реализуют метод render(), который принимает входные данные" },
+    { id: 3, message: "Декларативные представления сделают код более предсказуемым и упростят отладку. " },
   ],
   profile: null,
   status: "",

@@ -18,3 +18,4 @@ export default function Card({ card, index }) {
         </Draggable>
     )
 }
+
