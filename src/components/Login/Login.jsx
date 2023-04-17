@@ -1,65 +1,38 @@
-import { connect } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { Field } from "redux-form";
-import { reduxForm } from "redux-form";
-import { login } from "../../redux/auth-reducer";
-import { Input } from "../common/FormsControls/FormsControls";
-import required from "../utils/validators/validators";
-import s from "./Login.module.css";
-import style from "../common/FormsControls/FormsControls.module.css";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
-const LoginForm = (props) => {
-  return (
-    <form onSubmit={props.handleSubmit} className={s.form}>
-      <legend>Войдите в аккаунт</legend>
-      <div>
-        <Field
-          placeholder={"Email"}
-          component={Input}
-          name={"email"}
-          validate={[required]}
-        />
-      </div>
-      <div>
-        <Field
-          placeholder={"Password"}
-          component={Input}
-          name={"password"}
-          type={"password"}
-          validate={[required]}
-        />
-      </div>
-      <div>
-        <Field type={"checkbox"} component={"input"} name={"rememberMe"} />{" "}
-        Запомнить меня
-      </div>
-      {props.error && (
-        <div className={style.formSummaryError}>{props.error}</div>
-      )}
-      <div>
-        <button>Войти</button>
-      </div>
-    </form>
-  );
-};
-const LoginReduxForm = reduxForm({
-  form: "login",
-})(LoginForm);
+const Login = () => {
+  const [err, setErr] = useState(false);
+  const navigate = useNavigate();
 
-const Login = (props) => {
-  const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/profile")
+    } catch (err) {
+      setErr(true);
+    }
   };
-  if (props.isAuth) {
-    return <Navigate to={"/profile"} />;
-  }
   return (
-    <div className={s.item}>
-      <LoginReduxForm onSubmit={onSubmit} />
+    <div className="formContainer">
+      <div className="formWrapper">
+        <span className="title">Login</span>
+        <form onSubmit={handleSubmit}>
+          <input type="email" placeholder="email" />
+          <input type="password" placeholder="password" />
+          <button>Sign in</button>
+          {err && <span>Something went wrong</span>}
+        </form>
+        <p>You don't have an account? <Link to="/register">Register</Link></p>
+      </div>
     </div>
   );
 };
-const mapStateToProps = (state) => ({
-  isAuth: state.auth.isAuth,
-});
-export default connect(mapStateToProps, { login })(Login);
+
+export default Login;

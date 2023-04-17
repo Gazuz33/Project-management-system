@@ -17,7 +17,7 @@ const Dialogs = (props) => {
   let addNewMessage = (values) => {
     props.sendMessage(values.newMessageBody);
   };
-  if (!props.isAuth) return <Navigate to={"/login"} />;
+  //if (!props.isAuth) return <Navigate to={"/login"} />;
   return (
     <div className={s.item}>
       <div className={s.dialogs}>

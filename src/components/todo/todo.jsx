@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import List from "./components/List";
 import store from "./utils/store";
 import storeApi from "./utils/storeApi";
@@ -8,6 +8,7 @@ import style from "./todo.module.css";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Droppable } from "react-beautiful-dnd";
 import { Navigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const ToDo = () => {
   const [data, setData] = useState(store);
@@ -30,6 +31,10 @@ const ToDo = () => {
     };
     setData(newState);
   };
+  const { currentUser } = useContext(AuthContext);
+  if (!currentUser) {
+    return <Navigate to="/login" />;
+  }
   const addMoreList = (title) => {
     const newListId = uuid();
     const newList = {

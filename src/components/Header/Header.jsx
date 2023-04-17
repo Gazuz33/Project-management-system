@@ -1,16 +1,24 @@
 import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
-const Header = (props) => {
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import {signOut} from "firebase/auth"
+import { auth } from '../../firebase'
+const Header = () => {
+  const { currentUser } = useContext(AuthContext);
   return (
     <header className={s.header}>
       <img src="https://img-fotki.yandex.ru/get/49312/106698111.20/0_235fac_88527a68_M.png" />
       <span>Project management system </span>
       <div className={s.loginBlock}>
-        {props.isAuth ? (
+        {{...currentUser}.email ? (
           <div>
-            <div className={s.login}>{props.login}</div>{" "}
+            <div className={s.login}>{currentUser.displayName}</div>{" "}
             <div className={s.logout}>
-              <button onClick={props.logout}>Выйти</button>
+            <NavLink to={"/login"}>
+            <button onClick={()=>signOut(auth)}>Выйти</button>
+          </NavLink>
+            
             </div>{" "}
           </div>
         ) : (
@@ -23,3 +31,5 @@ const Header = (props) => {
   );
 };
 export default Header;
+
+

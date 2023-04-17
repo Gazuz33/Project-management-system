@@ -1,19 +1,21 @@
-import { useRef, useState } from "react";
-import firebase from "firebase/app";
-import "firebase/firestore";
+import { useContext, useRef, useState } from "react";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 import { ReactComponent as HangupIcon } from "./icons/hangup.svg";
 import { ReactComponent as MoreIcon } from "./icons/more-vertical.svg";
 import { ReactComponent as CopyIcon } from "./icons/copy.svg";
 import "./index.css";
 import "../../App.css";
+import { AuthContext } from "../../context/AuthContext";
+import { Navigate } from "react-router";
 //Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCjK_pkVWFm5U7eC04an47by2Rtug_pIDk",
-  authDomain: "video-chat-12.firebaseapp.com",
-  projectId: "video-chat-12",
-  storageBucket: "video-chat-12.appspot.com",
-  messagingSenderId: "586535728586",
-  appId: "1:586535728586:web:12503342f92e3de36c0b33",
+  apiKey: "AIzaSyD_ttvj1JfTbKTk3maOjyuPQYg0tNiFYTs",
+  authDomain: "chat-fb4ce.firebaseapp.com",
+  projectId: "chat-fb4ce",
+  storageBucket: "chat-fb4ce.appspot.com",
+  messagingSenderId: "468701335789",
+  appId: "1:468701335789:web:777ae282183f14a291fce4"
 };
 
 if (!firebase.apps.length) {
@@ -35,9 +37,13 @@ const servers = {
 const pc = new RTCPeerConnection(servers);
 
 function App() {
+
   const [currentPage, setCurrentPage] = useState("home");
   const [joinCode, setJoinCode] = useState("");
-
+  const { currentUser } = useContext(AuthContext);
+  if (!currentUser) {
+    return <Navigate to="/login" />;
+  }
   return (
     <div className="app">
       {currentPage === "home" ? (
@@ -65,7 +71,7 @@ function Menu({ joinCode, setJoinCode, setPage }) {
           className="code"
           value={joinCode}
           onChange={(e) => setJoinCode(e.target.value)}
-          placeholder="Введите код сессии"
+          placeholder="Введите ключ сессии"
         />
         <button className="bbtn" onClick={() => setPage("join")}>Подключиться к видеозвонку</button>
       </div>

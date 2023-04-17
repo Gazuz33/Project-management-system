@@ -1,10 +1,15 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink, Navigate } from "react-router-dom";
 import userPhoto from "../../assets/images/userPhoto.png";
 import s from "./Users.module.css";
 import * as axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
 
 let Users = (props) => {
+  const { currentUser } = useContext(AuthContext);
+  if (!currentUser) {
+    return <Navigate to="/login" />;
+  }
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -33,12 +38,10 @@ let Users = (props) => {
         <div key={u.id} className={s.Card}>
           <span>
             <div>
-              <NavLink to={"/profile/" + u.id}>
-                <img
-                  className={s.img}
-                  src={u.photos.small != null ? u.photos.small : userPhoto}
-                />
-              </NavLink>
+              <img
+                className={s.img}
+                src={u.photos.small != null ? u.photos.small : userPhoto}
+              />
             </div>
             <div className={s.user}>
               <span>

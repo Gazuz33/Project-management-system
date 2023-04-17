@@ -3,8 +3,7 @@ import "./components/Header/Header.module.css";
 import "./components/Navbar/Navbar.module.css";
 import "./components/Profile/Profile.module.css";
 import Navbar from "./components/Navbar/Navbar";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -12,6 +11,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import ToDo from "./components/todo/todo";
 import Video from "./components/video/video";
+import Profile from "./components/Profile/Profile";
 
 const App = () => {
   return (
@@ -23,8 +23,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<DialogsContainer />} />
             <Route path="/dialogs" element={<DialogsContainer />} />
-            <Route path="/profile/:userId" element={<ProfileContainer />} />
-            <Route path="/profile" element={<ProfileContainer />} />
+            <Route path="/profile/:userId" element={<Profile/>} />
+            <Route path="/profile" element={<Profile/>} />
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/login" element={<Login />} />
@@ -37,6 +37,7 @@ const App = () => {
   );
 };
 export default App;
+
 
 
 
