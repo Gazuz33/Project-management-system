@@ -4,6 +4,7 @@ import { auth, db, storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
+import Add from "../../assets/images/free-icon-upload-4131658.png"
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -61,22 +62,22 @@ const Register = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Lama Chat</span>
-        <span className="title">Register</span>
+        <span className="title">Регистрация</span>
         <form onSubmit={handleSubmit}>
-          <input required type="text" placeholder="display name" />
-          <input required type="email" placeholder="email" />
-          <input required type="password" placeholder="password" />
+          <input required type="text" placeholder="Имя" />
+          <input required type="email" placeholder="Почта" />
+          <input required type="password" placeholder="Пароль" />
           <input style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
-            <span>Add an avatar</span>
+           <img src={Add} alt="" />
+            <span>Добавить изображение профиля</span>
           </label>
-          <button disabled={loading}>Sign up</button>
+          <button disabled={loading}>Зарегистироваться</button>
           {loading && "Uploading and compressing the image please wait..."}
-          {err && <span>Something went wrong</span>}
+          {err && <span>Проверьте корректность данных...</span>}
         </form>
         <p>
-          You do have an account? <Link to="/login">Login</Link>
+          У вас уже есть аккаунт? <Link to="/login">Вход</Link>
         </p>
       </div>
     </div>

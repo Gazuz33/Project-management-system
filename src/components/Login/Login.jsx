@@ -22,14 +22,14 @@ const Login = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="title">Login</span>
+        <span className="title">Вход в аккаунт</span>
         <form onSubmit={handleSubmit}>
-          <input type="email" placeholder="email" />
-          <input type="password" placeholder="password" />
-          <button>Sign in</button>
-          {err && <span>Something went wrong</span>}
+          <input type="email" placeholder="Почта" />
+          <input type="password" placeholder="Пароль" />
+          <button>Войти</button>
+          {err && <span>Проверьте корректность данных...</span>}
         </form>
-        <p>You don't have an account? <Link to="/register">Register</Link></p>
+        <p>У вас ещё нет аккаунта? <Link to="/register">Регистрация</Link></p>
       </div>
     </div>
   );

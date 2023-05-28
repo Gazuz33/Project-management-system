@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Navigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
+import s from "../Settings/Settings.module.css"
 
 const FullscreenToggle = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -19,7 +20,7 @@ const FullscreenToggle = () => {
 
   return (
     <div>
-      <label htmlFor="fullscreen-toggle">Full screen</label>
+      <label htmlFor="fullscreen-toggle">Полноэкранный режим</label>
       <input
         id="fullscreen-toggle"
         type="checkbox"

@@ -9,6 +9,7 @@ const Profile = (props) => {
   if (!currentUser) {
     return <Navigate to="/login" />;
   }
+  console.log(currentUser.photoURL);
   return (
     <div className={s.content}>
       <div className="user">

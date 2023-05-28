@@ -35,7 +35,7 @@ video {
   background: #ffffff;
 }
 
-.home {
+.Home {
   box-sizing: border-box;
   height: 100vh;
   display: grid;
@@ -43,7 +43,7 @@ video {
   padding: 10vh 20vw 20vh;
 }
 
-.home .box {
+.Home .box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,7 +88,7 @@ video {
 .modal button.secondary {
   margin-left: auto;
   color: var(--color-primary);
-  margin-right: 70px;
+  margin: 0 auto;
   border: none;
   border-radius: 6px;
 }

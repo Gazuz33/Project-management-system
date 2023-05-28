@@ -61,7 +61,7 @@ function App() {
 
 function Menu({ joinCode, setJoinCode, setPage }) {
   return (
-    <div className="home">
+    <div className="Home">
       <div className="create box">
         <button className="bbtn" onClick={() => setPage("create")}>Начать видеозвонок</button>
       </div>

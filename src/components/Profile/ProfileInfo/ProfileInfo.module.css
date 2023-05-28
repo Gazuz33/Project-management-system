@@ -21,7 +21,6 @@
     width: 100%;
   }
   .content .ava_description {
-    margin-left: 5%;
     margin-top: 2%;
     display: flex;
     flex-flow: row wrap;

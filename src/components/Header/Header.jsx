@@ -4,11 +4,13 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import {signOut} from "firebase/auth"
 import { auth } from '../../firebase'
+import logo from "../../assets/images/logo.png"
+
 const Header = () => {
   const { currentUser } = useContext(AuthContext);
   return (
     <header className={s.header}>
-      <img src="https://img-fotki.yandex.ru/get/49312/106698111.20/0_235fac_88527a68_M.png" />
+      <img src={logo}/>
       <span>Project management system </span>
       <div className={s.loginBlock}>
         {{...currentUser}.email ? (
