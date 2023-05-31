@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Project-management-system/static/css/main.2a61e4c5.css",
+    "main.js": "/Project-management-system/static/js/main.f2f57551.js",
+    "static/media/userPhoto.png": "/Project-management-system/static/media/userPhoto.28e44cb7f5d2425541e5.png",
+    "static/media/free-icon-upload-4131658.png": "/Project-management-system/static/media/free-icon-upload-4131658.68caa5876c6dd4dc8fda.png",
+    "static/media/wait.svg": "/Project-management-system/static/media/wait.7d27309264578ab3473e.svg",
+    "static/media/logo.png": "/Project-management-system/static/media/logo.fd5e89c5dbba08550144.png",
+    "static/media/preLoader.svg": "/Project-management-system/static/media/preLoader.5ea199035a63bc457377aca2fe3d6a4a.svg",
+    "index.html": "/Project-management-system/index.html",
+    "static/media/hangup.svg": "/Project-management-system/static/media/hangup.ca680c473b3d6fd82b279b8507d318e6.svg",
+    "static/media/copy.svg": "/Project-management-system/static/media/copy.4c19a6dd8558a8e82f16d174837df176.svg",
+    "static/media/more-vertical.svg": "/Project-management-system/static/media/more-vertical.4cad70953b302c2ee888bebb7b319618.svg",
+    "main.2a61e4c5.css.map": "/Project-management-system/static/css/main.2a61e4c5.css.map",
+    "main.f2f57551.js.map": "/Project-management-system/static/js/main.f2f57551.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a61e4c5.css",
+    "static/js/main.f2f57551.js"
+  ]
+}
